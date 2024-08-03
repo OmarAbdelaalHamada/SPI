@@ -7,6 +7,8 @@ output reg rx_valid;
 output reg MISO;
 reg internal_signal;
 output reg [(ADDR_SIZE + 2)-1:0]rx_data;
+// (*fsm_encoding = "gray"*)
+(*fsm_encoding = "one_hot"*)
 reg [2:0] cs,ns;
 reg [3:0]counter_4_bits;
 integer i = 0 ;
