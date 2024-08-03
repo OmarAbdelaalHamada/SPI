@@ -131,10 +131,11 @@ always @(posedge clk or negedge rst_n) begin
             else begin 
                 rx_valid <= 0;
             end
-            if(tx_valid & rx_valid) begin 
-                for (i = 0 ; i < ADDR_SIZE ;i = i + 1) begin 
-                    MISO <= tx_data[ADDR_SIZE-1-i];
-                end
+            if(tx_valid && counter_4_bits < 8 ) begin 
+                    MISO <= tx_data[ADDR_SIZE-1-counter_4_bits];
+            end
+            else begin 
+                MISO <= 0;
             end
         end
     end
