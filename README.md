@@ -50,7 +50,7 @@ To simulate the design and ensure its correctness, a testbench (`SPI_Wrapper_tb.
 
 ### Running the Simulation
 
-1. Open your simulation tool (e.g., ModelSim).
+1. Open your simulation tool:ModelSim.
 2. Load the `run.do` file.
 3. Run the simulation to verify the design.
 
