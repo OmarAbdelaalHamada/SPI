@@ -14,24 +14,23 @@ always @(posedge clk) begin
         address <= 0;
     end
     else begin 
+        if(rx_valid) begin 
             case (din[9:8])
-                2'b00: begin  if(rx_valid) begin 
+                2'b00: begin  
                     address <= din[ADDR_SIZE-1:0];
                 end
-                end
-                2'b01: begin if(rx_valid) begin 
+                2'b01: begin  
                     mem[address] <= din[ADDR_SIZE-1:0];
                 end
-                end
-                2'b10: begin if(rx_valid) begin 
+                2'b10: begin 
                     address <= din[ADDR_SIZE-1:0];
-                end
                 end
                 2'b11: begin 
                     dout <= mem[address];
                     tx_valid = (din[9:8] == 2'b11);
                 end
             endcase
+        end
     end
 end
 endmodule
